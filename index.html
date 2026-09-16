@@ -7,7 +7,7 @@
   <style>
     /* -------------------------------------------------------------
        CSS RESET & DESIGN SYSTEM (ZERO EXTERNAL DEPENDENCY)
-       Supports Auto Light/Dark Mode & Manual Toggle + Amap Integration
+       Supports Auto Light/Dark Mode & Native App Scheme Wakeup
     ------------------------------------------------------------- */
     :root {
       --bg-primary: #fbf8f3;
@@ -307,25 +307,18 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
-      padding: 7px 10px;
+      padding: 8px 12px;
       border-radius: var(--radius-sm);
-      background: var(--bg-card);
-      border: 1px solid var(--border-main);
-      color: var(--accent-amap);
-      text-decoration: none;
+      background: #027aff;
+      color: #ffffff;
+      border: none;
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
+      box-shadow: 0 2px 6px rgba(2, 122, 255, 0.25);
     }
-    .booking-nav-btn-amap {
-      background: #e8f3ff;
-      border-color: #b8daff;
-      color: #0066cc;
-    }
-    [data-theme="dark"] .booking-nav-btn-amap {
-      background: #102a45;
-      border-color: #1e4976;
-      color: #66b2ff;
+    .booking-nav-btn:active {
+      transform: scale(0.98);
     }
 
     /* 4. DAY-BY-DAY TIMELINE & NAVIGATION */
@@ -385,6 +378,10 @@
       background: #027aff;
       color: #ffffff;
       border-color: #027aff;
+      box-shadow: 0 2px 6px rgba(2, 122, 255, 0.2);
+    }
+    .action-btn-amap:active {
+      transform: scale(0.98);
     }
     [data-theme="dark"] .action-btn-amap {
       background: #0066d6;
@@ -440,6 +437,12 @@
       display: inline-flex;
       align-items: center;
       gap: 2px;
+      background: none;
+      border: none;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: 800;
+      padding: 0;
     }
     .timeline-ticket-badge {
       font-size: 10px;
@@ -685,13 +688,13 @@
       </div>
     </div>
 
-    <!-- 3. CONFIRMED BOOKINGS (PRIVACY PROTECTED + AMAP NAVIGATION) -->
+    <!-- 3. CONFIRMED BOOKINGS (DIRECT APP WAKEUP NAVIGATION) -->
     <div class="card">
       <div class="section-header">
         <div class="section-title">
-          <span>📋 已确认订单总览 (高德一键直达版)</span>
+          <span>📋 已确认订单总览 (直启高德App版)</span>
         </div>
-        <span class="section-badge">点按钮直接唤起高德地图</span>
+        <span class="section-badge">一键直接唤起高德地图App</span>
       </div>
 
       <div class="booking-grid">
@@ -706,7 +709,7 @@
             • <b>航段：</b> 上海浦东 T2 ➔ 阿勒泰雪都机场
           </div>
           <div class="booking-nav-actions">
-            <a class="booking-nav-btn booking-nav-btn-amap" href="https://uri.amap.com/search?keyword=上海浦东国际机场T2航站楼" target="_blank">🗺️ 高德导航浦东T2</a>
+            <button class="booking-nav-btn" onclick="navAmap('上海浦东国际机场T2航站楼')">🗺️ 直启高德: 浦东T2</button>
           </div>
         </div>
 
@@ -722,7 +725,7 @@
             • <b>车牌：</b> 新AE98K5
           </div>
           <div class="booking-nav-actions">
-            <a class="booking-nav-btn booking-nav-btn-amap" href="https://uri.amap.com/search?keyword=阿勒泰雪都机场" target="_blank">🗺️ 高德导航雪都机场</a>
+            <button class="booking-nav-btn" onclick="navAmap('阿勒泰雪都机场')">🗺️ 直启高德: 雪都机场</button>
           </div>
         </div>
 
@@ -738,7 +741,7 @@
             • <b>特点：</b> 七彩小镇核心区，环境好近夜市
           </div>
           <div class="booking-nav-actions">
-            <a class="booking-nav-btn booking-nav-btn-amap" href="https://uri.amap.com/search?keyword=晨佳小院Mornjoy设计师美宿七彩小镇店" target="_blank">🗺️ 高德导航晨佳小院</a>
+            <button class="booking-nav-btn" onclick="navAmap('晨佳小院Mornjoy设计师美宿七彩小镇店')">🗺️ 直启高德: 晨佳小院</button>
           </div>
         </div>
 
@@ -754,7 +757,7 @@
             • <b>特点：</b> 俯瞰湖口神仙机位，距换乘中心近
           </div>
           <div class="booking-nav-actions">
-            <a class="booking-nav-btn booking-nav-btn-amap" href="https://uri.amap.com/search?keyword=半山Live美学民宿喀纳斯老村店" target="_blank">🗺️ 高德导航半山Live</a>
+            <button class="booking-nav-btn" onclick="navAmap('半山Live美学民宿喀纳斯老村店')">🗺️ 直启高德: 半山Live</button>
           </div>
         </div>
 
@@ -770,7 +773,7 @@
             • <b>特点：</b> 禾木村内静谧木屋，近禾木桥
           </div>
           <div class="booking-nav-actions">
-            <a class="booking-nav-btn booking-nav-btn-amap" href="https://uri.amap.com/search?keyword=禾木花梵谷民宿" target="_blank">🗺️ 高德导航花梵谷民宿</a>
+            <button class="booking-nav-btn" onclick="navAmap('禾木花梵谷民宿')">🗺️ 直启高德: 花梵谷民宿</button>
           </div>
         </div>
 
@@ -786,19 +789,19 @@
             • <b>特点：</b> 街区吃喝方便，距机场15分钟
           </div>
           <div class="booking-nav-actions">
-            <a class="booking-nav-btn booking-nav-btn-amap" href="https://uri.amap.com/search?keyword=全季酒店阿勒泰五百里风情街店" target="_blank">🗺️ 高德导航全季五百里店</a>
+            <button class="booking-nav-btn" onclick="navAmap('全季酒店阿勒泰五百里风情街店')">🗺️ 直启高德: 全季五百里店</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 4. DAY-BY-DAY ITINERARY WITH HIGH COMPATIBILITY AMAP DIRECT LINKS -->
+    <!-- 4. DAY-BY-DAY ITINERARY WITH DIRECT AMAP APP NAVIGATION -->
     <div class="card">
       <div class="section-header">
         <div class="section-title">
-          <span>📅 逐日行程与高德全天多点导航</span>
+          <span>📅 逐日行程与高德一键导航</span>
         </div>
-        <span class="section-badge">点击地点直接唤起高德地图</span>
+        <span class="section-badge">点击地点直接唤起高德地图App</span>
       </div>
 
       <!-- DAY 1 -->
@@ -810,7 +813,7 @@
           </div>
           <div class="day-actions">
             <button class="action-btn" onclick="toggleDayMap('map-d1')">🗺️ 展开路线图</button>
-            <a class="action-btn action-btn-amap" href="https://uri.amap.com/navigation?from=&to=&via=&mode=car&policy=1&src=trip&coordinate=gaode&callnative=1" onclick="openAmapRoute(['阿勒泰雪都机场', '五彩滩景区', '晨佳小院Mornjoy设计师美宿七彩小镇店', '布尔津河堤夜市']); return false;">🗺️ 高德一键打开 D1 全天路线</a>
+            <button class="action-btn action-btn-amap" onclick="navAmap('五彩滩风景区')">🗺️ 直启高德 D1: 前往五彩滩</button>
           </div>
         </div>
         <!-- Collapsible Mini Map D1 -->
@@ -831,7 +834,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🛬 落地阿勒泰雪都机场 ➔ </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=阿勒泰雪都机场" target="_blank">🗺️ 机场站内取车</a>
+                <button class="timeline-amap-link" onclick="navAmap('阿勒泰雪都机场')">🗺️ 机场站内取车</button>
               </div>
               <div class="timeline-desc">提取行李，在到达层行李转盘旁租车柜台办理手续，提 2.0T SUV (新AE98K5) 绕车录像验车。</div>
             </div>
@@ -847,7 +850,7 @@
             <div class="timeline-time">18:00 - 20:15</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=五彩滩景区" target="_blank">🌅 五彩滩风景区</a>
+                <button class="timeline-amap-link" onclick="navAmap('五彩滩风景区')">🌅 五彩滩风景区</button>
                 <span class="timeline-ticket-badge">现场/提前购票</span>
               </div>
               <div class="timeline-desc">看额尔齐斯河北岸悬崖式彩色雅丹在落日余晖中如熔金般绚丽（黄金拍摄时刻 19:30 - 20:15）。</div>
@@ -858,9 +861,9 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🏨 入住</span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=晨佳小院Mornjoy设计师美宿七彩小镇店" target="_blank">晨佳小院·设计师美宿</a>
+                <button class="timeline-amap-link" onclick="navAmap('晨佳小院Mornjoy设计师美宿七彩小镇店')">晨佳小院·设计师美宿</button>
                 <span>➔ </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=布尔津河堤夜市" target="_blank">🐟 河堤夜市</a>
+                <button class="timeline-amap-link" onclick="navAmap('布尔津河堤夜市')">🐟 河堤夜市</button>
               </div>
               <div class="timeline-desc">办理入住停好车。打车（￥8~￥10）前往河堤夜市吃正宗额河烤狗鱼、羊肉串、冷采格瓦斯。</div>
             </div>
@@ -877,7 +880,7 @@
           </div>
           <div class="day-actions">
             <button class="action-btn" onclick="toggleDayMap('map-d2')">🗺️ 展开路线图</button>
-            <a class="action-btn action-btn-amap" href="#" onclick="openAmapRoute(['布尔津县', '冲乎尔镇中石油加油站', '贾登峪门票站停车场', '喀纳斯换乘中心']); return false;">🗺️ 高德一键打开 D2 全天路线</a>
+            <button class="action-btn action-btn-amap" onclick="navAmap('贾登峪门票站停车场')">🗺️ 直启高德 D2: 前往贾登峪停车场</button>
           </div>
         </div>
         <!-- Collapsible Mini Map D2 -->
@@ -899,7 +902,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🚗 自驾 S232 盘山路至 </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=贾登峪门票站停车场" target="_blank">🗺️ 贾登峪停车场</a>
+                <button class="timeline-amap-link" onclick="navAmap('贾登峪门票站停车场')">🗺️ 贾登峪停车场</button>
                 <span>(140km / 2.5h)</span>
               </div>
               <div class="timeline-desc">布尔津加油站加满油出发。途中注意牛羊转场减速。抵达贾登峪大停车场，<b>大行李箱锁车后备箱，随身带20寸小箱/背包</b>。</div>
@@ -910,7 +913,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🚌 乘区间车进山 ➔ 入住</span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=半山Live美学民宿喀纳斯老村店" target="_blank">半山Live·美学民宿</a>
+                <button class="timeline-amap-link" onclick="navAmap('半山Live美学民宿喀纳斯老村店')">半山Live·美学民宿</button>
                 <span class="timeline-ticket-badge">喀纳斯门票+区间车提前预约</span>
               </div>
               <div class="timeline-desc">区间车约 50 分钟抵达换乘中心，前往下湖口平台入住半山Live（老村半山高处平台，俯瞰整个村落与湖口）。</div>
@@ -920,7 +923,7 @@
             <div class="timeline-time">14:00 - 17:00</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=喀纳斯观鱼台" target="_blank">🏔️ 观鱼台 (西侧山顶)</a>
+                <button class="timeline-amap-link" onclick="navAmap('喀纳斯观鱼台')">🏔️ 观鱼台 (西侧山顶)</button>
                 <span class="timeline-ticket-badge">现场扫码购专线车￥20</span>
               </div>
               <div class="timeline-desc">换乘中心乘专线车至半山腰，攀登 1,068 级木栈道台阶登顶，俯瞰翡翠湖与远方友谊峰雪山群。</div>
@@ -930,9 +933,9 @@
             <div class="timeline-time">17:00 - 20:00</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=喀纳斯月亮湾" target="_blank">🌙 月亮湾</a>
+                <button class="timeline-amap-link" onclick="navAmap('喀纳斯月亮湾')">🌙 月亮湾</button>
                 <span> ➔ </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=喀纳斯卧龙湾" target="_blank">🐉 卧龙湾</a>
+                <button class="timeline-amap-link" onclick="navAmap('喀纳斯卧龙湾')">🐉 卧龙湾</button>
                 <span> (3.5km 黄金轻徒步)</span>
               </div>
               <div class="timeline-desc">乘区间车至月亮湾下车拍照，沿木栈道顺流轻徒步 3.5km 至卧龙湾，呼吸原始针叶林负氧离子，卧龙湾乘车回村。</div>
@@ -957,7 +960,7 @@
           </div>
           <div class="day-actions">
             <button class="action-btn" onclick="toggleDayMap('map-d3')">🗺️ 展开路线图</button>
-            <a class="action-btn action-btn-amap" href="#" onclick="openAmapRoute(['贾登峪门票站停车场', '禾木公路', '禾木门票站停车场']); return false;">🗺️ 高德一键打开 D3 全天路线</a>
+            <button class="action-btn action-btn-amap" onclick="navAmap('禾木门票站停车场')">🗺️ 直启高德 D3: 前往禾木门票站</button>
           </div>
         </div>
         <!-- Collapsible Mini Map D3 -->
@@ -978,7 +981,7 @@
             <div class="timeline-time">07:00 - 08:30</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=喀纳斯神仙湾" target="_blank">🌫️ 神仙湾晨雾绝美大片</a>
+                <button class="timeline-amap-link" onclick="navAmap('喀纳斯神仙湾')">🌫️ 神仙湾晨雾绝美大片</button>
               </div>
               <div class="timeline-desc">从半山Live出发乘首班区间车直达神仙湾，抓拍晨光穿透白桦林与水面轻纱薄雾（注意手机贴暖宝宝防冻关机）。</div>
             </div>
@@ -988,7 +991,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🚗 自驾最美【禾木公路(X652)】至 </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=禾木门票站停车场" target="_blank">🗺️ 禾木门票站</a>
+                <button class="timeline-amap-link" onclick="navAmap('禾木门票站停车场')">🗺️ 禾木门票站</button>
                 <span>(70km / 2h)</span>
               </div>
               <div class="timeline-desc">乘区间车出村到贾登峪取车，向东自驾穿行在金黄白桦林峡谷与起伏丘陵间。</div>
@@ -999,7 +1002,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🚌 换乘区间车进村 ➔ 入住</span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=禾木花梵谷民宿" target="_blank">禾木花梵谷民宿</a>
+                <button class="timeline-amap-link" onclick="navAmap('禾木花梵谷民宿')">禾木花梵谷民宿</button>
                 <span class="timeline-ticket-badge">禾木门票+区间车提前预约</span>
               </div>
               <div class="timeline-desc">车停禾木门票站大停车场，乘区间车（45分钟 / 30km）进村，入住花梵谷民宿。</div>
@@ -1009,7 +1012,7 @@
             <div class="timeline-time">14:30 - 16:30</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=禾木木桥" target="_blank">☕ 禾木木桥 ➔ 白桦林咖啡馆</a>
+                <button class="timeline-amap-link" onclick="navAmap('禾木木桥')">☕ 禾木木桥 ➔ 白桦林咖啡馆</button>
               </div>
               <div class="timeline-desc">漫步走过禾木古木桥，在河畔白桦林下喝手冲咖啡、吃刚出锅的热包尔萨克，看金色落叶随清澈河水漂流。</div>
             </div>
@@ -1018,7 +1021,7 @@
             <div class="timeline-time">18:30 - 20:30</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=禾木哈登观景台" target="_blank">🌄 哈登观景台 · 落日金顶</a>
+                <button class="timeline-amap-link" onclick="navAmap('禾木哈登观景台')">🌄 哈登观景台 · 落日金顶</button>
               </div>
               <div class="timeline-desc">木栈道步行 15 分钟登顶，看夕阳余晖染红千座原木屋顶与缕缕炊烟。</div>
             </div>
@@ -1042,7 +1045,7 @@
           </div>
           <div class="day-actions">
             <button class="action-btn" onclick="toggleDayMap('map-d4')">🗺️ 展开路线图</button>
-            <a class="action-btn action-btn-amap" href="#" onclick="openAmapRoute(['禾木门票站停车场', '托勒海特', '全季酒店阿勒泰五百里风情街店', '将军山滑雪场']); return false;">🗺️ 高德一键打开 D4 全天路线</a>
+            <button class="action-btn action-btn-amap" onclick="navAmap('托勒海特')">🗺️ 直启高德 D4: 穿越阿禾公路</button>
           </div>
         </div>
         <!-- Collapsible Mini Map D4 -->
@@ -1063,7 +1066,7 @@
             <div class="timeline-time">07:00 - 08:30</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=禾木哈登观景台" target="_blank">🌄 哈登观景台 · 晨雾与炊烟全景</a>
+                <button class="timeline-amap-link" onclick="navAmap('禾木哈登观景台')">🌄 哈登观景台 · 晨雾与炊烟全景</button>
               </div>
               <div class="timeline-desc">登顶见证禾木最震撼时刻——薄雾在整座木屋村落上方聚拢流动，炊烟袅袅升起。</div>
             </div>
@@ -1073,7 +1076,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🐎 禾木桥租马 ➔ 深入 </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=禾木美丽峰" target="_blank">【美丽峰高山草原】</a>
+                <button class="timeline-amap-link" onclick="navAmap('禾木美丽峰')">【美丽峰高山草原】</button>
               </div>
               <div class="timeline-desc">官方马队租马（约￥260~300/人往返），由马夫带领穿越金色原始白桦林，驰骋于雪山下的高山夏牧场。</div>
             </div>
@@ -1093,9 +1096,9 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>🏨 入住</span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=全季酒店阿勒泰五百里风情街店" target="_blank">全季酒店(五百里店)</a>
+                <button class="timeline-amap-link" onclick="navAmap('全季酒店阿勒泰五百里风情街店')">全季酒店(五百里店)</button>
                 <span>➔ </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=阿勒泰将军山滑雪场" target="_blank">🎡 将军山晚霞</a>
+                <button class="timeline-amap-link" onclick="navAmap('阿勒泰将军山滑雪场')">🎡 将军山晚霞</button>
               </div>
               <div class="timeline-desc">办理入住停好车。开车 8 分钟至将军山乘缆车看阿勒泰金色晚霞。</div>
             </div>
@@ -1119,7 +1122,7 @@
           </div>
           <div class="day-actions">
             <button class="action-btn" onclick="toggleDayMap('map-d5')">🗺️ 展开路线图</button>
-            <a class="action-btn action-btn-amap" href="#" onclick="openAmapRoute(['全季酒店阿勒泰五百里风情街店', '阿勒泰桦林公园', '阿勒泰大巴扎', '阿勒泰雪都机场']); return false;">🗺️ 高德一键打开 D5 全天路线</a>
+            <button class="action-btn action-btn-amap" onclick="navAmap('阿勒泰雪都机场')">🗺️ 直启高德 D5: 前往机场还车</button>
           </div>
         </div>
         <!-- Collapsible Mini Map D5 -->
@@ -1139,7 +1142,7 @@
             <div class="timeline-time">09:00 - 10:30</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=阿勒泰市桦林公园" target="_blank">🌲 漫步桦林公园与克兰河畔</a>
+                <button class="timeline-amap-link" onclick="navAmap('阿勒泰市桦林公园')">🌲 漫步桦林公园与克兰河畔</button>
               </div>
               <div class="timeline-desc">秋水潺潺，克兰河畔金黄落叶林漫步，拍摄城市森林秋景。</div>
             </div>
@@ -1148,7 +1151,7 @@
             <div class="timeline-time">10:30 - 12:30</div>
             <div class="timeline-content">
               <div class="timeline-title">
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=阿勒泰市中心大巴扎" target="_blank">🛍️ 阿勒泰市中心大巴扎采买特产</a>
+                <button class="timeline-amap-link" onclick="navAmap('阿勒泰市中心大巴扎')">🛍️ 阿勒泰市中心大巴扎采买特产</button>
               </div>
               <div class="timeline-desc">采购正宗新疆风干牛肉干、骆驼奶粉、野生黑加仑葡萄干、黑蜂蜂蜜。</div>
             </div>
@@ -1165,7 +1168,7 @@
             <div class="timeline-content">
               <div class="timeline-title">
                 <span>⛽ 加油站补满油 ➔ </span>
-                <a class="timeline-amap-link" href="https://uri.amap.com/search?keyword=阿勒泰雪都机场" target="_blank">🗺️ 雪都机场站内还车</a>
+                <button class="timeline-amap-link" onclick="navAmap('阿勒泰雪都机场')">🗺️ 雪都机场站内还车</button>
               </div>
               <div class="timeline-desc">市区加满油，驱车 15 分钟至机场，行李转盘旁柜台办理还车手续（订单约定 15:00 还车）。</div>
             </div>
@@ -1266,7 +1269,7 @@
 
   </div>
 
-  <!-- JAVASCRIPT: ACCURATE TIMEZONE COUNTDOWN & AMAP ROUTING (ZERO DEPENDENCY) -->
+  <!-- JAVASCRIPT: ACCURATE TIMEZONE COUNTDOWN & NATIVE AMAP APP WAKEUP -->
   <script>
     // 1. Precise Timezone Countdown (Target: 2026-09-24 09:55:00 UTC+8)
     const TARGET_DATE = new Date("2026-09-24T09:55:00+08:00").getTime();
@@ -1307,12 +1310,29 @@
       }
     }
 
-    // 3. Open Native Amap Multi-stop Route
-    function openAmapRoute(stops) {
-      if (!stops || stops.length === 0) return;
-      const destination = encodeURIComponent(stops[stops.length - 1]);
-      const amapUri = `https://uri.amap.com/navigation?to=${destination}&mode=car&policy=1&src=trip&callnative=1`;
-      window.open(amapUri, '_blank');
+    // 3. Intelligent Native Amap App Wakeup with Web Fallback
+    function navAmap(destName) {
+      if (!destName) return;
+      const encodedName = encodeURIComponent(destName);
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isAndroid = /Android/.test(navigator.userAgent);
+
+      if (isIOS) {
+        // iOS Amap App Direct Scheme
+        window.location.href = `iosamap://path?sourceApplication=travel&dname=${encodedName}&dev=0&m=0&t=0`;
+        setTimeout(() => {
+          window.location.href = `https://uri.amap.com/search?keyword=${encodedName}`;
+        }, 1200);
+      } else if (isAndroid) {
+        // Android Amap App Direct Scheme
+        window.location.href = `androidamap://route?sourceApplication=travel&dname=${encodedName}&dev=0&m=0&t=0`;
+        setTimeout(() => {
+          window.location.href = `https://uri.amap.com/search?keyword=${encodedName}`;
+        }, 1200);
+      } else {
+        // Desktop Browser
+        window.open(`https://www.amap.com/search?query=${encodedName}`, '_blank');
+      }
     }
 
     // 4. Theme Toggle (Auto Day/Night + Manual Override)

@@ -459,6 +459,89 @@
       line-height: 1.5;
     }
 
+    /* RESTAURANT RECOMMENDATION SECTION */
+    .restaurant-region {
+      margin-bottom: 18px;
+    }
+    .restaurant-region:last-child {
+      margin-bottom: 0;
+    }
+    .region-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      padding: 4px 10px;
+      background: var(--bg-subtle);
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-gold);
+    }
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 600px) {
+      .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .restaurant-card {
+      background: var(--bg-tint);
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .restaurant-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .restaurant-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .restaurant-type {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-main);
+      color: var(--accent-gold);
+    }
+    .restaurant-specialty {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .restaurant-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      background: #027aff;
+      color: #ffffff;
+      border: none;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(2, 122, 255, 0.2);
+    }
+    .restaurant-nav-btn:active {
+      transform: scale(0.98);
+    }
+
     /* 5. STATIC TODO LIST */
     .todo-list {
       list-style: none;
@@ -646,7 +729,7 @@
             <rect x="0" y="0" width="150" height="65" rx="8" fill="#feebc8" stroke="#dd6b20" stroke-width="2" />
             <text x="75" y="24" text-anchor="middle" fill="#7b341e" font-size="12" font-weight="bold">🌅 布尔津 / 五彩滩</text>
             <text x="75" y="42" text-anchor="middle" fill="#c05621" font-size="10">D1宿: 晨佳小院美宿</text>
-            <text x="75" y="56" text-anchor="middle" fill="#718096" font-size="9">七彩小镇 / 河堤夜市</text>
+            <text x="75" y="56" text-anchor="middle" fill="#718096" font-size="9">七彩小镇 / 疆客 / 三三鱼庄</text>
           </g>
 
           <!-- D4/D5 STOP: Altay City (全季五百里店) & Airport -->
@@ -654,7 +737,7 @@
             <rect x="0" y="0" width="160" height="65" rx="8" fill="#e9d8fd" stroke="#805ad5" stroke-width="2" />
             <text x="80" y="24" text-anchor="middle" fill="#553c9a" font-size="12" font-weight="bold">🛬 阿勒泰市 / 机场</text>
             <text x="80" y="42" text-anchor="middle" fill="#6b46c1" font-size="10">D4宿: 全季五百里店</text>
-            <text x="80" y="56" text-anchor="middle" fill="#718096" font-size="9">D1提车 ｜ D5 15:00还车</text>
+            <text x="80" y="56" text-anchor="middle" fill="#718096" font-size="9">乡村馕坑肉 / 15:00还车</text>
           </g>
 
           <!-- DAY 1 ROUTE (Orange): Altay Airport -> Burqin (S319, 100km) -->
@@ -809,7 +892,7 @@
         <div class="day-header">
           <div class="day-title-row">
             <div class="day-tag"><span>📍 D1</span><span>9月24日 (周四)</span></div>
-            <div class="day-theme">落地阿勒泰 ➔ 五彩滩落日 ➔ 布尔津烤狗鱼</div>
+            <div class="day-theme">落地阿勒泰 ➔ 五彩滩落日 ➔ 疆客游牧菜 / 三三鱼庄</div>
           </div>
           <div class="day-actions">
             <button class="action-btn" onclick="toggleDayMap('map-d1')">🗺️ 展开路线图</button>
@@ -824,7 +907,7 @@
             <circle cx="80" cy="60" r="10" fill="#dd6b20" /><text x="80" y="90" text-anchor="middle" font-size="11" font-weight="bold">🛬 机场提车 (16:00)</text>
             <circle cx="260" cy="60" r="10" fill="#dd6b20" /><text x="260" y="90" text-anchor="middle" font-size="11" font-weight="bold">🌅 五彩滩落日 (18:00)</text>
             <circle cx="460" cy="60" r="10" fill="#dd6b20" /><text x="460" y="90" text-anchor="middle" font-size="11" font-weight="bold">🏨 晨佳小院 (20:30)</text>
-            <circle cx="620" cy="60" r="10" fill="#dd6b20" /><text x="620" y="90" text-anchor="middle" font-size="11" font-weight="bold">🐟 河堤夜市 (21:00)</text>
+            <circle cx="620" cy="60" r="10" fill="#dd6b20" /><text x="620" y="90" text-anchor="middle" font-size="11" font-weight="bold">🍽️ 疆客/三三鱼庄 (21:00)</text>
           </svg>
         </div>
         <!-- Timeline D1 -->
@@ -862,10 +945,14 @@
               <div class="timeline-title">
                 <span>🏨 入住</span>
                 <button class="timeline-amap-link" onclick="navAmap('晨佳小院Mornjoy设计师美宿七彩小镇店')">晨佳小院·设计师美宿</button>
-                <span>➔ </span>
-                <button class="timeline-amap-link" onclick="navAmap('布尔津河堤夜市')">🐟 河堤夜市</button>
+                <span>➔ 🍽️ 布尔津必吃特色晚餐</span>
               </div>
-              <div class="timeline-desc">办理入住停好车。打车（￥8~￥10）前往河堤夜市吃正宗额河烤狗鱼、羊肉串、冷采格瓦斯。</div>
+              <div class="timeline-desc">
+                办理入住停好车。推荐前往布尔津当地口碑名店：<br>
+                • <button class="timeline-amap-link" onclick="navAmap('布尔津疆客游牧新疆菜')">🍲 疆客游牧新疆菜</button>：必点特色烤羊排、手抓饭、羊肉皮辣红、酸奶粽子；<br>
+                • <button class="timeline-amap-link" onclick="navAmap('布尔津三三鱼庄')">🐟 三三鱼庄</button>：布尔津老牌冷水鱼名店，清蒸/香辣额尔齐斯河野生冷水狗鱼、五道黑；<br>
+                • <button class="timeline-amap-link" onclick="navAmap('布尔津河堤夜市')">🍢 河堤夜市</button>：打车（￥8~￥10）前往吃现烤狗鱼、羊肉串与冷采格瓦斯。
+              </div>
             </div>
           </div>
         </div>
@@ -944,8 +1031,13 @@
           <div class="timeline-item">
             <div class="timeline-time">20:30 - 22:00</div>
             <div class="timeline-content">
-              <div class="timeline-title">🍲 晚餐：图瓦人家铜锅土火锅</div>
-              <div class="timeline-desc">在老村木屋品尝热气腾腾的铜炭火锅，风干牛肉配野生菌，驱散高原寒气。</div>
+              <div class="timeline-title">🍲 晚餐：喀纳斯老村特色高口碑美食</div>
+              <div class="timeline-desc">
+                在老村木屋品尝热气腾腾的特色风味：<br>
+                • <button class="timeline-amap-link" onclick="navAmap('喀纳斯游牧厨房')">🥘 游牧厨房</button>：喀纳斯高口碑融合菜，慢炖羊肉、风干牛肉与特色手工酸奶；<br>
+                • <button class="timeline-amap-link" onclick="navAmap('喀纳斯泰加餐厅')">🌲 泰加餐厅</button>：极具氛围感的木屋餐厅，热气腾腾图瓦铜锅土火锅与暖心特饮；<br>
+                • <button class="timeline-amap-link" onclick="navAmap('喀纳斯百年老屋')">🛖 百年老屋</button>：百年历史图瓦老屋，品尝传统手抓肉、原汁咸奶茶与现炸包尔萨克。
+              </div>
             </div>
           </div>
         </div>
@@ -1106,8 +1198,12 @@
           <div class="timeline-item">
             <div class="timeline-time">20:45 - 22:30</div>
             <div class="timeline-content">
-              <div class="timeline-title">🍲 晚餐：五百里街区【海尔大盘鸡 / 金勺子抓饭】</div>
-              <div class="timeline-desc">享用正宗阿勒泰辣子大盘鸡、碎肉抓饭与现烤羊肉包子。</div>
+              <div class="timeline-title">🥩 晚餐：阿勒泰市老字号馕坑肉 / 抓饭大盘鸡</div>
+              <div class="timeline-desc">
+                享受阿勒泰市区极其地道的硬核肉食：<br>
+                • <button class="timeline-amap-link" onclick="navAmap('阿勒泰市乡村馕坑肉')">🥩 乡村馕坑肉</button>：阿勒泰老字号必吃！外酥里嫩的馕坑烤羊肉、架子肉与热气腾腾羊肉串；<br>
+                • <button class="timeline-amap-link" onclick="navAmap('阿勒泰市海尔大盘鸡')">🍗 五百里街区海尔大盘鸡 / 金勺子抓饭</button>：正宗沙湾辣子大盘鸡配手工皮带面。
+              </div>
             </div>
           </div>
         </div>
@@ -1159,8 +1255,12 @@
           <div class="timeline-item">
             <div class="timeline-time">12:30 - 14:00</div>
             <div class="timeline-content">
-              <div class="timeline-title">🍜 午餐：正宗过油肉拌面配大串烤肉</div>
-              <div class="timeline-desc">吃一碗地道的新疆拉条子与现烤红柳烤肉。</div>
+              <div class="timeline-title">
+                <span>🍜 午餐：</span>
+                <button class="timeline-amap-link" onclick="navAmap('阿勒泰市乡村馕坑肉')">🥩 乡村馕坑肉</button>
+                <span> / 正宗过油肉拌面配烤肉</span>
+              </div>
+              <div class="timeline-desc">在市区老字号品尝最后一口焦香多汁的馕坑肉或一碗劲道过油肉拉条子。</div>
             </div>
           </div>
           <div class="timeline-item">
@@ -1184,7 +1284,119 @@
       </div>
     </div>
 
-    <!-- 5. STATIC MASTER TODO LIST (NO LOCAL CHECKBOX DESYNC) -->
+    <!-- 5. SPECIALLY CURATED RESTAURANTS (DIRECT AMAP APP WAKEUP) -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span>🍽️ 特色必吃美食与地道餐馆 (直启高德App)</span>
+        </div>
+        <span class="section-badge">一键直达餐厅导航</span>
+      </div>
+
+      <!-- Region 1: 布尔津县 -->
+      <div class="restaurant-region">
+        <div class="region-badge">📍 布尔津县 (D1 宿地美食)</div>
+        <div class="restaurant-grid">
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🍲 疆客游牧新疆菜</span>
+              <span class="restaurant-type">特色新疆菜</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 特色烤羊排、手抓羊肉、羊肉皮辣红、沙棘汁、酸奶粽子<br>
+              • <b>推荐理由：</b> 布尔津当地高分口碑名店，肉质鲜嫩无膻味，分量实在
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('布尔津疆客游牧新疆菜')">🗺️ 直启高德: 疆客游牧菜</button>
+          </div>
+
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🐟 三三鱼庄</span>
+              <span class="restaurant-type">老牌冷水鱼名店</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 清蒸冷水狗鱼、红烧五道黑、香辣冷水鱼、额河九道黑<br>
+              • <b>推荐理由：</b> 布尔津地道冷水鱼老字号，额尔齐斯河野生鱼肉质紧致鲜甜
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('布尔津三三鱼庄')">🗺️ 直启高德: 三三鱼庄</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Region 2: 喀纳斯景区 -->
+      <div class="restaurant-region">
+        <div class="region-badge">📍 喀纳斯景区 (D2 老村宿地美食)</div>
+        <div class="restaurant-grid">
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🥘 游牧厨房</span>
+              <span class="restaurant-type">西域风味融合菜</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 慢炖高山羊肉、风干牛肉煲、特色手工老酸奶、烤羊排<br>
+              • <b>推荐理由：</b> 喀纳斯老村极具格调的品质餐厅，食材扎实，就餐环境温馨
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('喀纳斯游牧厨房')">🗺️ 直启高德: 游牧厨房</button>
+          </div>
+
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🌲 泰加餐厅</span>
+              <span class="restaurant-type">木屋美景餐厅</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 图瓦铜锅土火锅、木屋手冲咖啡、暖身咸奶茶、野山菌炖鸡<br>
+              • <b>推荐理由：</b> 窗外即是金黄白桦与落叶松，傍晚烤火吃土火锅极有氛围
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('喀纳斯泰加餐厅')">🗺️ 直启高德: 泰加餐厅</button>
+          </div>
+
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🛖 百年老屋</span>
+              <span class="restaurant-type">百年图瓦原生态</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 图瓦原生态手抓羊肉、现炸包尔萨克、酥油奶茶、奶疙瘩<br>
+              • <b>推荐理由：</b> 体验百年历史老木屋原汁原味图瓦民俗风情与传统美食
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('喀纳斯百年老屋')">🗺️ 直启高德: 百年老屋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Region 3: 阿勒泰市区 -->
+      <div class="restaurant-region">
+        <div class="region-badge">📍 阿勒泰市区 (D4/D5 宿地与返程美食)</div>
+        <div class="restaurant-grid">
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🥩 乡村馕坑肉</span>
+              <span class="restaurant-type">阿勒泰老字号烧烤</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 传统馕坑烤肉、外酥里嫩架子肉、现烤大羊肉串、烤羊排<br>
+              • <b>推荐理由：</b> 阿勒泰必吃老字号，馕坑高温锁汁，外皮焦香内里多汁爆香
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('阿勒泰市乡村馕坑肉')">🗺️ 直启高德: 乡村馕坑肉</button>
+          </div>
+
+          <div class="restaurant-card">
+            <div class="restaurant-header">
+              <span class="restaurant-name">🍗 海尔大盘鸡 / 金勺子抓饭</span>
+              <span class="restaurant-type">经典本地家常名店</span>
+            </div>
+            <div class="restaurant-specialty">
+              • <b>招牌必点：</b> 沙湾辣子大盘鸡加皮带面、碎肉抓饭、羊杂汤<br>
+              • <b>推荐理由：</b> 位于五百里风情街旁，就餐方便，香辣浓郁正宗
+            </div>
+            <button class="restaurant-nav-btn" onclick="navAmap('阿勒泰市海尔大盘鸡')">🗺️ 直启高德: 海尔大盘鸡</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. STATIC MASTER TODO LIST (NO LOCAL CHECKBOX DESYNC) -->
     <div class="card">
       <div class="section-header">
         <div class="section-title">
@@ -1232,7 +1444,7 @@
       </ul>
     </div>
 
-    <!-- 6. PRACTICAL ESSENTIAL TIPS -->
+    <!-- 7. PRACTICAL ESSENTIAL TIPS -->
     <div class="card">
       <div class="section-header">
         <div class="section-title">

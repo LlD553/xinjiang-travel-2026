@@ -541,6 +541,114 @@
     .restaurant-nav-btn:active {
       transform: scale(0.98);
     }
+    .restaurant-reserve {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--bg-card);
+      border: 1px dashed var(--accent-gold);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1.4;
+    }
+
+    /* PACKING LIST MASTER */
+    .packing-category {
+      margin-bottom: 16px;
+      background: var(--bg-tint);
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .packing-category:last-child {
+      margin-bottom: 0;
+    }
+    .packing-cat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border-main);
+      padding-bottom: 8px;
+    }
+    .packing-cat-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .packing-cat-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg-subtle);
+      color: var(--accent-gold);
+    }
+    .packing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    @media (min-width: 600px) {
+      .packing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .packing-item-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border-main);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .packing-item-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .packing-item-name {
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .packing-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-left: 4px;
+    }
+    .tag-carry {
+      background: #e6fffa;
+      color: #234e52;
+      border: 1px solid #b2f5ea;
+    }
+    .tag-small {
+      background: #fefcbf;
+      color: #744210;
+      border: 1px solid #faf089;
+    }
+    .tag-trunk {
+      background: #edf2f7;
+      color: #4a5568;
+      border: 1px solid #e2e8f0;
+    }
+    .tag-urgent {
+      background: #fed7d7;
+      color: #9b2c2c;
+      border: 1px solid #feb2b2;
+    }
 
     /* 5. STATIC TODO LIST */
     .todo-list {
@@ -1333,6 +1441,7 @@
               • <b>招牌必点：</b> 清蒸野生冷水狗鱼、红烧/香煎五道黑、冷水鱼豆腐鲜汤、哈萨克奶茶<br>
               • <b>推荐理由：</b> 布尔津老牌四星高口碑名店，环境舒适宽敞，明码标价，冷水鱼鲜美紧致
             </div>
+            <div class="restaurant-reserve">📅 预约建议：无需严格预约（大厅桌多翻台快，五彩滩看完落日出发时可顺道电话确认）</div>
             <button class="restaurant-nav-btn" onclick="navAmap('布尔津名流大酒店名流鱼庄')">🗺️ 直启高德: 名流鱼庄</button>
           </div>
 
@@ -1345,6 +1454,7 @@
               • <b>招牌必点：</b> 特色烤羊排、手抓羊肉、羊肉皮辣红、沙棘汁、酸奶粽子<br>
               • <b>推荐理由：</b> 布尔津当地高分口碑名店，肉质鲜嫩无膻味，分量实在
             </div>
+            <div class="restaurant-reserve">📅 预约建议：无需预约（20:00-21:30 饭点若客满稍候 10~15 分钟，翻台较快）</div>
             <button class="restaurant-nav-btn" onclick="navAmap('布尔津疆客游牧新疆菜')">🗺️ 直启高德: 疆客游牧菜</button>
           </div>
 
@@ -1357,6 +1467,7 @@
               • <b>招牌必点：</b> 清蒸冷水狗鱼、红烧五道黑、香辣冷水鱼、额河九道黑<br>
               • <b>推荐理由：</b> 布尔津地道冷水鱼老字号，额尔齐斯河野生鱼肉质紧致鲜甜
             </div>
+            <div class="restaurant-reserve">📅 预约建议：无需预约（老牌冷水鱼专门店，直接到店点鱼称重即可）</div>
             <button class="restaurant-nav-btn" onclick="navAmap('布尔津三三鱼庄')">🗺️ 直启高德: 三三鱼庄</button>
           </div>
         </div>
@@ -1375,6 +1486,7 @@
               • <b>招牌必点：</b> 慢炖高山羊肉、风干牛肉煲、特色手工老酸奶、烤羊排<br>
               • <b>推荐理由：</b> 喀纳斯老村极具格调的品质餐厅，食材扎实，就餐环境温馨
             </div>
+            <div class="restaurant-reserve">📅 预约建议：建议 19:30 前错峰到店，或当天下午提前电话咨询（晚高峰常需排队 20~30 分钟）</div>
             <button class="restaurant-nav-btn" onclick="navAmap('喀纳斯游牧厨房')">🗺️ 直启高德: 游牧厨房</button>
           </div>
 
@@ -1387,6 +1499,7 @@
               • <b>招牌必点：</b> 图瓦铜锅土火锅、木屋手冲咖啡、暖身咸奶茶、野山菌炖鸡<br>
               • <b>推荐理由：</b> 窗外即是金黄白桦与落叶松，傍晚烤火吃土火锅极有氛围
             </div>
+            <div class="restaurant-reserve">📅 预约建议：🌟 强烈建议提前 1~2 小时电话预订！抢靠窗白桦景观位与招牌铜锅土火锅</div>
             <button class="restaurant-nav-btn" onclick="navAmap('喀纳斯泰加餐厅')">🗺️ 直启高德: 泰加餐厅</button>
           </div>
 
@@ -1399,6 +1512,7 @@
               • <b>招牌必点：</b> 图瓦原生态手抓羊肉、现炸包尔萨克、酥油奶茶、奶疙瘩<br>
               • <b>推荐理由：</b> 体验百年历史老木屋原汁原味图瓦民俗风情与传统美食
             </div>
+            <div class="restaurant-reserve">📅 预约建议：普通堂食手抓肉直接前往；若需特色烤全羊等极耗时大菜需提前半天预约</div>
             <button class="restaurant-nav-btn" onclick="navAmap('喀纳斯百年老屋')">🗺️ 直启高德: 百年老屋</button>
           </div>
         </div>
@@ -1417,6 +1531,7 @@
               • <b>招牌必点：</b> 传统馕坑烤肉、外酥里嫩架子肉、现烤大羊肉串、烤羊排<br>
               • <b>推荐理由：</b> 阿勒泰必吃老字号，馕坑高温锁汁，外皮焦香内里多汁爆香
             </div>
+            <div class="restaurant-reserve">📅 预约建议：纯现场排队（不接受订座！馕坑肉整炉出炉，出炉即分，趁热吃）</div>
             <button class="restaurant-nav-btn" onclick="navAmap('阿勒泰市乡村馕坑肉')">🗺️ 直启高德: 乡村馕坑肉</button>
           </div>
 
@@ -1429,13 +1544,327 @@
               • <b>招牌必点：</b> 沙湾辣子大盘鸡加皮带面、碎肉抓饭、羊杂汤<br>
               • <b>推荐理由：</b> 位于五百里风情街旁，就餐方便，香辣浓郁正宗
             </div>
+            <div class="restaurant-reserve">📅 预约建议：无需预约（本地家常名店，直接到店即食）</div>
             <button class="restaurant-nav-btn" onclick="navAmap('阿勒泰市海尔大盘鸡')">🗺️ 直启高德: 海尔大盘鸡</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 6. STATIC MASTER TODO LIST (NO LOCAL CHECKBOX DESYNC) -->
+    <!-- 6. PACKING LIST MASTER (SCIENTIFIC TWO-LUGGAGE SYSTEM) -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span>🎒 行李装备全景清单 (2人·5天4晚金秋北疆)</span>
+        </div>
+        <span class="section-badge">双箱分工 · 应对0℃~22℃</span>
+      </div>
+
+      <!-- Packing Cat 1: 证件与重要资金 -->
+      <div class="packing-category">
+        <div class="packing-cat-header">
+          <span class="packing-cat-title">📄 核心证件与应急资金</span>
+          <span class="packing-cat-badge">随身双肩包 · 严防遗漏</span>
+        </div>
+        <div class="packing-grid">
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🪪</span>
+            <div>
+              <span class="packing-item-name">身份证原件 (2人)</span>
+              <span class="packing-tag tag-urgent">必带</span><span class="packing-tag tag-carry">随身</span><br>
+              检查站、登机、酒店、白哈巴边防证、景区门票全靠原件，杜绝只带电子版！
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🚗</span>
+            <div>
+              <span class="packing-item-name">驾驶证原件</span>
+              <span class="packing-tag tag-urgent">必带</span><span class="packing-tag tag-carry">随身</span><br>
+              阿勒泰机场取车（坦克300）及沿途交警检查必备，两名驾驶员均需携带。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💴</span>
+            <div>
+              <span class="packing-item-name">应急现金纸币 (￥200~￥300)</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              深山信号弱区（美丽峰、白哈巴、高山牧场）租马、买矿泉水、牧民摊位备用。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💳</span>
+            <div>
+              <span class="packing-item-name">实体银行卡 / 信用卡</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              携程自驾租车预授权押金（违章押金）及特殊线下场景备用。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packing Cat 2: 核心衣物与鞋履 -->
+      <div class="packing-category">
+        <div class="packing-cat-header">
+          <span class="packing-cat-title">🧥 核心防寒衣物与鞋履 (洋葱叠穿法)</span>
+          <span class="packing-cat-badge">0℃晨雾 ~ 22℃午阳</span>
+        </div>
+        <div class="packing-grid">
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🧥</span>
+            <div>
+              <span class="packing-item-name">三合一冲锋衣 (每人1件)</span>
+              <span class="packing-tag tag-urgent">防风防雨</span><span class="packing-tag tag-carry">穿/带</span><br>
+              带抓绒或羽绒可拆卸内胆。早晨神仙湾晨雾、哈登日出日落抗风御寒主力。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🪶</span>
+            <div>
+              <span class="packing-item-name">轻薄便携羽绒服 / 抓绒开衫 (每人1件)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              可压缩收纳成小包。清晨套在冲锋衣内，正午气温升高时脱下轻松塞入随身包。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">👕</span>
+            <div>
+              <span class="packing-item-name">速干长袖打底 / 运动内搭 (每人2~3件)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              登观鱼台 1068 级台阶或徒步微汗，速干面料排汗快干，防被高山冷风吹感冒。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">👖</span>
+            <div>
+              <span class="packing-item-name">防风工装徒步裤 / 冲锋裤 (每人2条)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              建议深色或耐磨大地色，应对木栈道、石子路与骑马，防沾泥土与风刮。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🥾</span>
+            <div>
+              <span class="packing-item-name">防滑登山徒步鞋 (每人1双主力)</span>
+              <span class="packing-tag tag-urgent">脚穿</span><br>
+              必须磨合舒适！月亮湾至卧龙湾 3.5km 沿河木栈道、台阶、石子路抓地防滑。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🧦</span>
+            <div>
+              <span class="packing-item-name">羊毛或加厚中筒运动袜 (每人3~4双)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              保护脚踝脚跟防磨脚，高海拔清晨保暖透气。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🧣</span>
+            <div>
+              <span class="packing-item-name">防寒三件套：冷帽 + 触屏手套 + 墨镜</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              针织毛线帽防清晨头痛；触屏手套操作手机不冻僵；墨镜防午后雪山公路强眩光。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">👔</span>
+            <div>
+              <span class="packing-item-name">备用保暖秋裤 / 备用内衣裤</span>
+              <span class="packing-tag tag-trunk">大箱备用</span><br>
+              大箱留车内，进村20寸小箱内放两晚贴身换洗即可。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packing Cat 3: 护肤防晒与个人护理 -->
+      <div class="packing-category">
+        <div class="packing-cat-header">
+          <span class="packing-cat-title">🧴 护肤防晒与个人护理</span>
+          <span class="packing-cat-badge">极干燥气候 · 强紫外线</span>
+        </div>
+        <div class="packing-grid">
+          <div class="packing-item-card">
+            <span class="packing-item-icon">☀️</span>
+            <div>
+              <span class="packing-item-name">高倍防晒霜 (SPF50+ PA++++)</span>
+              <span class="packing-tag tag-urgent">必带</span><span class="packing-tag tag-small">20寸箱</span><br>
+              高原紫外线强度高，阴天/多云也能晒伤脱皮，男女每日出门前均需涂抹。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💧</span>
+            <div>
+              <span class="packing-item-name">高保湿面霜 + 补水喷雾</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              北疆秋季湿度常低于 20%，空气极干，滋润面霜有效缓解脸部紧绷起皮。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💄</span>
+            <div>
+              <span class="packing-item-name">滋润润唇膏 (人手1支)</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              深山干燥风大，嘴唇极易干裂脱皮出血，放外衣口袋随时补涂。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">👃</span>
+            <div>
+              <span class="packing-item-name">生理盐水洗鼻喷雾 / 红霉素软膏</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              深山干冷空气易使鼻粘膜干燥毛细血管渗血，早晚各喷一次极度舒适！
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🧖</span>
+            <div>
+              <span class="packing-item-name">医用补水舒缓面膜 (4~6片)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              夜晚在喀纳斯老村与禾木木屋敷上一片，迅速抚平全天风吹日晒。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🪥</span>
+            <div>
+              <span class="packing-item-name">旅行洗漱分装 + 压缩毛巾 + 马桶垫</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              木屋民宿原生态，自备高品质洗漱用品与一次性马桶垫更加洁净安心。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packing Cat 4: 随身常备应急医药 -->
+      <div class="packing-category">
+        <div class="packing-cat-header">
+          <span class="packing-cat-title">💊 随身常备应急医药</span>
+          <span class="packing-cat-badge">温差 · 肠胃 · 盘山晕车</span>
+        </div>
+        <div class="packing-grid">
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💊</span>
+            <div>
+              <span class="packing-item-name">肠胃药 (蒙脱石散 / 整肠生 / 氟哌酸)</span>
+              <span class="packing-tag tag-urgent">必带</span><span class="packing-tag tag-small">20寸箱</span><br>
+              新疆羊肉油脂足、冷水鱼性凉、大盘鸡辛辣，肠胃适应期必备防腹泻。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💊</span>
+            <div>
+              <span class="packing-item-name">健胃消食片 / 多酶片</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              手抓肉、烤羊排、抓饭分量扎实，每餐饭后嚼两片助消化。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💊</span>
+            <div>
+              <span class="packing-item-name">感冒退热药 (感冒灵 / 布洛芬 / 泰诺)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              早晚温差超 20℃，若遇降温受凉，睡前趁热喝一包预防头痛发烧。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🩹</span>
+            <div>
+              <span class="packing-item-name">晕车贴 / 乘晕宁</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              S232 盘山路 140km、禾木公路连续弯道，易晕车者提前半小时贴耳后。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🩹</span>
+            <div>
+              <span class="packing-item-name">创可贴 + 碘伏消毒棉签</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              徒步防磨脚、树枝或石块擦伤应急消毒。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">💧</span>
+            <div>
+              <span class="packing-item-name">便携保温水杯 (每人1只)</span>
+              <span class="packing-tag tag-carry">随身神器</span><br>
+              早晨 0℃ 观雾徒步时喝上一口滚烫热水，暖胃驱寒提神。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packing Cat 5: 电子数码与供电 -->
+      <div class="packing-category">
+        <div class="packing-cat-header">
+          <span class="packing-cat-title">🔌 电子数码与供电系统</span>
+          <span class="packing-cat-badge">低温掉电防护 · 拍摄保障</span>
+        </div>
+        <div class="packing-grid">
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🔋</span>
+            <div>
+              <span class="packing-item-name">20000mAh 移动电源 (符合民航安检)</span>
+              <span class="packing-tag tag-urgent">随身带上机</span><br>
+              严禁托运！低温环境下手机电池容量折损明显，全天拍照导航必备。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🔥</span>
+            <div>
+              <span class="packing-item-name">暖宝宝贴片 (10~15片)</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              清晨 07:00 贴在手机背面或相机电池仓外，杜绝 iPhone 遇冷冻关机！
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🚗</span>
+            <div>
+              <span class="packing-item-name">车载点烟器快充头 + 双快充线</span>
+              <span class="packing-tag tag-carry">车内留存</span><br>
+              坦克 300 沿途自驾随时为 2 部手机高速补电，确保离线导航与拍照不断电。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">📷</span>
+            <div>
+              <span class="packing-item-name">微单/相机 + 长焦/广角 + 备用电池</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              电池放贴身内袋保温；长焦拍晨雾炊烟特写，广角收纳湖光雪山全景。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🔌</span>
+            <div>
+              <span class="packing-item-name">魔方多孔拓展插座</span>
+              <span class="packing-tag tag-small">20寸箱</span><br>
+              木屋客房插座往往有限，两人手机、手表、相机电池、充电宝同时充电。
+            </div>
+          </div>
+          <div class="packing-item-card">
+            <span class="packing-item-icon">🎧</span>
+            <div>
+              <span class="packing-item-name">降噪耳机 / 蒸汽眼罩</span>
+              <span class="packing-tag tag-carry">随身</span><br>
+              5小时往返航班与自驾休息时舒缓放松。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packing Cat 6: 双箱分工收纳黄金法则 -->
+      <div class="packing-category" style="border: 1px solid var(--accent-gold); background: var(--bg-subtle);">
+        <div class="packing-cat-header" style="border-bottom-color: var(--accent-gold);">
+          <span class="packing-cat-title" style="color: var(--accent-gold);">🧳 坦克300自驾 · 双箱科学分工法则</span>
+          <span class="packing-cat-badge">自驾轻装最高境界</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-main); line-height: 1.6;">
+          • <b>🔒 28寸大行李箱（全程锁在坦克300后备箱）</b>：存放备换厚衣服、第二双备用鞋、大瓶护肤乳液、整盒备用药、未拆封零食干粮、多余杂物。完全不带进山！<br>
+          • <b>🧳 20寸拉杆小箱（D2带入喀纳斯，D3带入禾木）</b>：放 2 晚贴身换洗衣物、轻薄羽绒/抓绒、洗漱包、面膜面霜、暖宝宝、插座充电线。区间大巴底舱轻松装卸，村内石子路联系民宿皮卡接驳。<br>
+          • <b>🎒 随身轻便双肩包（日间游玩不离身）</b>：身份证原件、驾照、现金、手机、充电宝、纸巾湿巾、保温杯。
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. STATIC MASTER TODO LIST (NO LOCAL CHECKBOX DESYNC) -->
     <div class="card">
       <div class="section-header">
         <div class="section-title">
@@ -1483,7 +1912,7 @@
       </ul>
     </div>
 
-    <!-- 7. PRACTICAL ESSENTIAL TIPS -->
+    <!-- 8. PRACTICAL ESSENTIAL TIPS -->
     <div class="card">
       <div class="section-header">
         <div class="section-title">
